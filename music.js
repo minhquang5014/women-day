@@ -2,6 +2,8 @@
 
 // Dán link YouTube hoặc link trực tiếp tới file .mp3 (hoặc "music.mp3" nếu dùng file trong thư mục)
 const MUSIC_SRC = "until_I_found_you.mp3";
+// Tính đường dẫn nhạc theo vị trí file music.js, để trang trong thư mục con cũng tìm thấy
+const MUSIC_URL = new URL(MUSIC_SRC, document.currentScript.src).href;
 
 addEventListener("DOMContentLoaded", () => {
   // Trang đang nằm trong khung của index.html: nhạc do trang ngoài phát, ở đây chỉ báo lần bấm đầu tiên
@@ -47,7 +49,7 @@ addEventListener("DOMContentLoaded", () => {
   const render = (playing) => btn.classList.toggle("playing", playing);
 
   const youtubeId = (MUSIC_SRC.match(/(?:v=|youtu\.be\/|embed\/|shorts\/)([\w-]{11})/) || [])[1];
-  const player = youtubeId ? createYouTubePlayer(youtubeId, savedTime, render) : createAudioPlayer(MUSIC_SRC, savedTime, render);
+  const player = youtubeId ? createYouTubePlayer(youtubeId, savedTime, render) : createAudioPlayer(MUSIC_URL, savedTime, render);
 
   const tryPlay = () => {
     if (!muted) player.play();

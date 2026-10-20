@@ -1,0 +1,80 @@
+/* Ảnh của Linh kiểu polaroid dưới mỗi lời chúc */
+
+.photos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 22px;
+}
+
+.photo {
+  width: 210px;
+  padding: 10px 10px 34px;
+  border: none;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 0 24px rgba(57, 198, 214, 0.55);
+  cursor: zoom-in;
+  transform: rotate(-4deg);
+  transition: transform 0.3s;
+}
+
+.photo:nth-child(even) {
+  transform: rotate(4deg);
+}
+
+.photo:hover {
+  transform: rotate(0) scale(1.06);
+}
+
+.page.active .photo {
+  animation: wish-pop 0.7s 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+}
+
+.page.active .photo:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.85);
+  cursor: zoom-out;
+}
+
+.lightbox.show {
+  display: flex;
+  animation: page-in 0.3s;
+  --from: 0;
+}
+
+.lightbox img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(57, 198, 214, 0.6);
+}
+
+@media (max-width: 600px) {
+  .photos {
+    gap: 14px;
+  }
+
+  .photo {
+    width: 42vw;
+    padding: 6px 6px 22px;
+  }
+}

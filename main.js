@@ -14,8 +14,9 @@ onload = () => {
     opened = sessionStorage.getItem("gift-opened") === "1";
   } catch {}
 
-  if (opened) {
-    gift.remove();
+  // Không có hộp quà (trang của Linh mở quà ở trang ngoài) thì cho hoa nở luôn
+  if (!gift || opened) {
+    gift?.remove();
     start();
     return;
   }
