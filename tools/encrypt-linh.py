@@ -1,10 +1,10 @@
-"""Mã hóa lời chúc và ảnh trong thư mục Linh/ thành em-linh/data.enc.
+"""Mã hóa lời chúc và ảnh trong thư mục Linh/ thành chi-co-moi-linh-trong-long-quang-thoi/data.enc.
 
 Chạy lại mỗi khi đổi ảnh hoặc lời chúc:
     python tools/encrypt-linh.py <mật khẩu>
 
 Định dạng file: salt (16 byte) | iv (12 byte) | dữ liệu AES-256-GCM.
-Khóa lấy từ mật khẩu bằng PBKDF2-SHA256, khớp với em-linh/unlock.js.
+Khóa lấy từ mật khẩu bằng PBKDF2-SHA256, khớp với chi-co-moi-linh-trong-long-quang-thoi/unlock.js.
 """
 
 import base64
@@ -20,7 +20,7 @@ from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 ITERATIONS = 250_000
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "Linh"
-OUT = ROOT / "em-linh" / "data.enc"
+OUT = ROOT / "chi-co-moi-linh-trong-long-quang-thoi" / "data.enc"
 IMAGE_TYPES = {".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "image/png", ".webp": "image/webp"}
 
 
