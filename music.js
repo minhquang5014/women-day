@@ -4,6 +4,17 @@
 const MUSIC_SRC = "until_I_found_you.mp3";
 
 addEventListener("DOMContentLoaded", () => {
+  // Trang đang nằm trong khung của index.html: nhạc do trang ngoài phát, ở đây chỉ báo lần bấm đầu tiên
+  if (window.parent !== window) {
+    const wake = () => {
+      try {
+        window.parent.startMusic();
+      } catch {}
+    };
+    ["click", "touchstart", "keydown"].forEach((ev) => addEventListener(ev, wake, { once: true }));
+    return;
+  }
+
   const get = (key) => {
     try {
       return sessionStorage.getItem(key);
@@ -34,6 +45,7 @@ addEventListener("DOMContentLoaded", () => {
   const tryPlay = () => {
     if (!muted) player.play();
   };
+  window.startMusic = tryPlay;
 
   // Trình duyệt chặn tự phát nhạc có tiếng, nên phát ngay ở lần chạm/bấm đầu tiên
   const unlock = (e) => {
