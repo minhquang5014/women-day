@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="music.css?v=2">
-    <script src="music.js?v=2"></script>
+    <link rel="stylesheet" href="music.css?v=3">
+    <script src="music.js?v=3"></script>
     <title>Happy Woman's day 20/10</title>
     <style>
         html, body {
@@ -26,6 +26,11 @@
 </head>
 
 <body>
-    <iframe class="frame" src="flowers.html" title="Happy Woman's day 20/10" allow="autoplay"></iframe>
+    <iframe class="frame" title="Happy Woman's day 20/10" allow="autoplay"></iframe>
+    <script>
+        // Mở đúng trang được yêu cầu (vd. index.html?page=wishes.html), mặc định là vườn hoa
+        const page = new URLSearchParams(location.search).get("page");
+        document.querySelector(".frame").src = /^[\w-]+\.html$/.test(page) && page !== "index.html" ? page : "flowers.html";
+    </script>
 </body>
 </html>

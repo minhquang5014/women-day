@@ -15,6 +15,13 @@ addEventListener("DOMContentLoaded", () => {
     return;
   }
 
+  // Trang bị mở trực tiếp (từ lịch sử, bản cũ trong bộ nhớ đệm...): đưa về trang khung để nhạc không bị ngắt
+  if (!document.querySelector(".frame")) {
+    const page = location.pathname.split("/").pop();
+    location.replace("index.html?page=" + encodeURIComponent(page));
+    return;
+  }
+
   const get = (key) => {
     try {
       return sessionStorage.getItem(key);
