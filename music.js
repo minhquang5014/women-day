@@ -1,7 +1,7 @@
 // Nhạc nền dùng chung cho các trang, phát tiếp khi chuyển trang
 
 // Dán link YouTube hoặc link trực tiếp tới file .mp3 (hoặc "music.mp3" nếu dùng file trong thư mục)
-const MUSIC_SRC = "Lost_Frequencies.mp3";
+const MUSIC_SRC = "until_I_found_you.mp3";
 
 addEventListener("DOMContentLoaded", () => {
   const get = (key) => {
