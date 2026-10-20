@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="wishes.css">
+    <link rel="stylesheet" href="feelings.css">
+    <link rel="stylesheet" href="music.css">
+    <script src="music.js"></script>
+    <title>Cảm nghĩ 20/10</title>
+</head>
+
+<body>
+    <div class="sky"></div>
+
+    <h1 class="title">𝓒𝓪̉𝓶 𝓷𝓰𝓱𝓲̃ <span class="title__date">20/10</span></h1>
+    <p class="subtitle">Chị em thấy món quà nhỏ này thế nào, nhắn lại cho mình nha 💌</p>
+
+    <form class="feel-form">
+        <div class="sticker sticker--cat">
+            <span class="sticker__bubble">Viết gì đó cho tui đi mà 🥺</span>
+            <span class="sticker__main">🐱</span>
+            <span class="sticker__float" style="--x:-60px; --d:0s">💕</span>
+            <span class="sticker__float" style="--x:55px; --d:0.8s">💖</span>
+        </div>
+
+        <label class="feel-form__label">
+            Tên của bạn
+            <input class="feel-form__input" name="name" placeholder="Ví dụ: Hoa xinh đẹp 🌸" required>
+        </label>
+
+        <div class="feel-form__label">
+            Cảm xúc lúc này
+            <div class="moods">
+                <label><input type="radio" name="mood" value="🥰 Thích lắm" checked><span>🥰</span></label>
+                <label><input type="radio" name="mood" value="😍 Mê luôn"><span>😍</span></label>
+                <label><input type="radio" name="mood" value="😂 Buồn cười"><span>😂</span></label>
+                <label><input type="radio" name="mood" value="🥹 Cảm động"><span>🥹</span></label>
+                <label><input type="radio" name="mood" value="😎 Bình thường"><span>😎</span></label>
+            </div>
+        </div>
+
+        <label class="feel-form__label">
+            Cảm nghĩ của bạn
+            <textarea class="feel-form__input" name="message" rows="5" placeholder="Viết vài dòng gửi mình nha..." required></textarea>
+        </label>
+
+        <button class="feel-form__submit" type="submit">Gửi đi 🚀</button>
+        <p class="feel-form__status" role="status"></p>
+    </form>
+
+    <div class="thanks">
+        <span class="thanks__icon">💝</span>
+        <p>Cảm ơn bạn đã gửi cảm nghĩ!<br>Chúc bạn 20/10 thật vui nha 🌸</p>
+    </div>
+
+    <div class="links">
+        <a class="back-btn" href="wishes.html">← Quay lại lời chúc</a>
+        <a class="back-btn" href="index.html">Về vườn hoa 🌷</a>
+    </div>
+
+    <script src="sky.js"></script>
+    <script src="feelings.js"></script>
+</body>
+</html>

@@ -38,6 +38,60 @@ body {
   top: 80px;
 }
 
+.happy-woman-day__date {
+  font-family: "Brush Script MT", "Segoe Script", cursive;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.next-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 10;
+  padding: 14px 28px;
+  border: 1px solid #39c6d6;
+  border-radius: 999px;
+  color: #fff;
+  font-family: "Segoe Script", cursive;
+  font-size: 18px;
+  text-decoration: none;
+  background: rgba(57, 198, 214, 0.12);
+  box-shadow: 0 0 18px rgba(57, 198, 214, 0.6);
+  opacity: 0;
+  animation: next-btn-in 1s 5s forwards, next-btn-glow 2s 6s ease-in-out infinite alternate;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.next-btn:hover {
+  transform: scale(1.08);
+  background: rgba(57, 198, 214, 0.3);
+}
+
+@keyframes next-btn-in {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes next-btn-glow {
+  to {
+    box-shadow: 0 0 32px rgba(57, 198, 214, 0.95);
+  }
+}
+
+@media (max-width: 600px) {
+  .next-btn {
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 20px;
+  }
+
+  .next-btn:hover {
+    transform: translateX(50%) scale(1.08);
+  }
+}
+
 .flowers {
   position: relative;
   transform: scale(0.9);
@@ -993,3 +1047,61 @@ body {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+/* Màn hình mở quà: bấm vào để bắt đầu hoa nở và phát nhạc */
+.gift {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  background: radial-gradient(circle at 50% 45%, #06282d 0%, #000 65%);
+  cursor: pointer;
+  transition: opacity 0.8s;
+}
+
+.gift--open {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.gift__box {
+  font-size: 120px;
+  filter: drop-shadow(0 0 24px rgba(57, 198, 214, 0.8));
+  animation: gift-shake 1.6s ease-in-out infinite;
+  animation-play-state: running !important;
+}
+
+.gift--open .gift__box {
+  animation: gift-pop 0.8s forwards;
+}
+
+.gift__text {
+  color: #fff;
+  font-family: "Segoe Script", cursive;
+  font-size: 24px;
+  text-shadow: 0 0 14px rgba(57, 198, 214, 0.9);
+  animation: gift-blink 1.6s ease-in-out infinite;
+  animation-play-state: running !important;
+}
+
+@keyframes gift-shake {
+  0%, 60%, 100% { transform: rotate(0) scale(1); }
+  70% { transform: rotate(-12deg) scale(1.08); }
+  80% { transform: rotate(12deg) scale(1.08); }
+  90% { transform: rotate(-6deg) scale(1.04); }
+}
+
+@keyframes gift-pop {
+  to {
+    transform: scale(2.2) rotate(20deg);
+    opacity: 0;
+  }
+}
+
+@keyframes gift-blink {
+  50% { opacity: 0.5; }
+}
